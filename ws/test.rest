@@ -71,13 +71,24 @@ GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/salesOrde
 Authorization: Basic {{user}}
 
 ### How to sent order?
-
 POST http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/salesOrders
 Authorization: Basic {{user}}
 Content-Type: application/json
 
 {
-  "postingDate": "2022-05-12",
-  "customerId": "5fb50b08-17ae-ec11-bb8a-000d3a299034",
-  "customerNumber": "30000"
+    "postingDate": "2022-05-12",
+    "customerNumber": "30000"
 }
+
+### How to sent order lines?
+GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/salesOrders(901536e8-e6d1-ec11-9624-6045bd8fe131)/salesOrderLines
+Authorization: Basic {{user}}
+
+###
+Content-Type: application/json
+
+{
+    "postingDate": "2022-05-12",
+    "customerNumber": "30000"
+}
+
