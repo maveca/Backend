@@ -50,6 +50,7 @@ page 59900 "Resource API"
                 }
                 part(picture; "Picture Entity")
                 {
+                    // https://www.eonesolutions.com/blog/tech-tuesday-business-central-item-image-web-service/
                     ApplicationArea = All;
                     Caption = 'picture';
                     EntityName = 'picture';
