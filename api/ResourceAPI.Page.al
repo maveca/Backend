@@ -12,6 +12,7 @@ page 59900 "Resource API"
     EntitySetName = 'resources';
     PageType = API;
     SourceTable = Resource;
+    ODataKeyFields = SystemId;
 
     layout
     {
@@ -43,11 +44,33 @@ page 59900 "Resource API"
                 {
                     Caption = 'Unit Price';
                 }
-                field(picture; Rec.Image)
+                field(eyeColor; Rec."Eye Color")
                 {
-                    Caption = 'Picture';
+                    Caption = 'Eye Color';
+                }
+                part(picture; "Picture Entity")
+                {
+                    ApplicationArea = All;
+                    Caption = 'picture';
+                    EntityName = 'picture';
+                    EntitySetName = 'picture';
+                    SubPageLink = Id = FIELD(SystemId);
                 }
             }
         }
     }
+
+    /// <summary>
+    /// Ping.
+    /// </summary>
+    /// <returns>Return value of type Text.</returns>
+    [ServiceEnabled]
+    [Scope('Cloud')]
+    procedure Post(): Text
+    var
+        DemoPost: Codeunit "Demo Post";
+    begin
+        Codeunit.Run(Codeunit::"Demo Post");
+        exit(DemoPost.Post(Rec));
+    end;
 }

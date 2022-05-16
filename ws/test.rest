@@ -17,6 +17,12 @@ Authorization: Basic {{user}}
 GET http://{{baseurl}}/companies
 Authorization: Basic {{user}}
 
+
+
+
+########### List of Items
+
+
 ### List of items
 GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/items
 Authorization: Basic {{user}}
@@ -42,6 +48,8 @@ Authorization: Basic {{user}}
 
 
 
+### Resources
+
 
 ### My list of apis
 GET http://{{mybaseurl}}
@@ -55,12 +63,26 @@ Authorization: Basic {{user}}
 GET http://{{mybaseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/resources
 Authorization: Basic {{user}}
 
-### Picture of Lina's resource
-GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/pictures(56088d2f-770c-4b90-ad12-0033ea5a61ea)/pictureContent
+### Specific resources
+GET http://{{mybaseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/resources(d5fe020e-17ae-ec11-bb8a-000d3a299034)
+Authorization: Basic {{user}}
+
+### Resource's picture
+GET http://{{mybaseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/resources(d5fe020e-17ae-ec11-bb8a-000d3a299034)/picture/pictureContent
+Authorization: Basic {{user}}
+
+### Resources properties
+GET http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/andjela/finance/v1.0/$metadata#companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/resources
+Authorization: Basic {{user}}
+
+### Call method
+POST http://{{mybaseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/resources(d5fe020e-17ae-ec11-bb8a-000d3a299034)/Microsoft.NAV.post
 Authorization: Basic {{user}}
 
 
 
+
+############## Sales Order
 
 ### Get sales Order
 GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/salesOrders(ec59001a-17ae-ec11-bb8a-000d3a299034)
@@ -81,14 +103,32 @@ Content-Type: application/json
 }
 
 ### How to sent order lines?
-GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/salesOrders(901536e8-e6d1-ec11-9624-6045bd8fe131)/salesOrderLines
+POST http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/salesOrders(d229cac1-e7d1-ec11-9624-6045bd8fe131)/salesOrderLines
 Authorization: Basic {{user}}
-
-###
 Content-Type: application/json
 
 {
-    "postingDate": "2022-05-12",
-    "customerNumber": "30000"
+    "lineType": "Item",
+    "lineObjectNumber": "1953-W",
+    "quantity": 2
 }
 
+### How to post order?
+POST http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/salesOrders(d229cac1-e7d1-ec11-9624-6045bd8fe131)/Microsoft.NAV.post
+Authorization: Basic {{user}}
+
+###
+
+PATCH https://{businesscentralPrefix}/api/v2.0/companies({id})/salesOrders({id})
+Content-type: application/json
+
+{
+  "paymentTermsId": "3bb5b4b6-ea4c-43ca-ba1c-3b69e29a6668"
+}
+
+
+
+
+#### List my Ivana's Customers
+GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/customers?$filter=salespersonCode eq 'IVANA'
+Authorization: Basic {{user}}
