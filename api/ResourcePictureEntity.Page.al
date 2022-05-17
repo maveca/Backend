@@ -3,13 +3,13 @@
 /// </summary>
 page 59902 "Resource Picture Entity"
 {
-    Caption = 'Picture Entity';
+    Caption = 'Resource Picture Entity';
     DelayedInsert = true;
     InsertAllowed = false;
+    ModifyAllowed = false;
+    DeleteAllowed = false;
     PageType = ListPart;
-    SourceTable = "Picture Entity";
-    SourceTableTemporary = true;
-
+    SourceTable = "Tenant Media";
     layout
     {
         area(content)
@@ -44,7 +44,9 @@ page 59902 "Resource Picture Entity"
                     Editable = false;
                     ToolTip = 'Specifies the value of the contentType field.';
                 }
+#pragma warning disable AL0273, AW0009                
                 field(content; Rec.Content)
+#pragma warning restore AL0273, AW0009
                 {
                     ApplicationArea = All;
                     Caption = 'content';
