@@ -48,6 +48,10 @@ page 59900 "Resource API"
                 {
                     Caption = 'Eye Color';
                 }
+                field(image; REc.Image)
+                {
+                    Caption = 'Image';
+                }
                 part(picture; "Picture Entity")
                 {
                     // https://www.eonesolutions.com/blog/tech-tuesday-business-central-item-image-web-service/
@@ -66,7 +70,6 @@ page 59900 "Resource API"
     /// </summary>
     /// <returns>Return value of type Text.</returns>
     [ServiceEnabled]
-    [Scope('Cloud')]
     procedure Post(): Text
     var
         DemoPost: Codeunit "Demo Post";
@@ -74,4 +77,32 @@ page 59900 "Resource API"
         Codeunit.Run(Codeunit::"Demo Post");
         exit(DemoPost.Post(Rec));
     end;
+
+    /// <summary>
+    /// PictureContent.
+    /// </summary>
+    /// <returns>Return value of type Text.</returns>
+    [ServiceEnabled]
+    procedure PictureContent(): Text
+    var
+        //TenantMedia: Codeunit "Media Resources Mgt.";
+        Base64Convert: Codeunit "Base64 Convert";
+        TempBlob: Codeunit "Temp Blob";
+        InStream: InStream;
+        OutStream: OutStream;
+    begin
+        Rec.Image.ExportStream(OutStream);
+        TempBlob.CreateInStream(InStream);
+        //TempBlob.CopyStream(OutStream, InStream);
+        exit(Base64Convert.ToBase64(InStream));
+
+        // if TenantMedia.Get(Rec.Image) then begin
+        //     TenantMedia.CalcFields(Content);
+        //     if TenantMedia.Content.HasValue() then begin
+        //         TenantMedia.Content.CreateInStream(InStream, TextEncoding::Windows);
+        //         exit(Base64Convert.ToBase64(InStream));
+        //     end;
+        // end;
+    end;
+
 }
