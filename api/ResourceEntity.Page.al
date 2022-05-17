@@ -1,7 +1,7 @@
 /// <summary>
 /// Page Resource API (ID 59900).
 /// </summary>
-page 59900 "Resource API"
+page 59900 "Resource Entity"
 {
     APIGroup = 'finance';
     APIPublisher = 'andjela';
