@@ -75,6 +75,10 @@ Authorization: Basic {{user}}
 GET http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/andjela/finance/v1.0/$metadata#companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/resources
 Authorization: Basic {{user}}
 
+### Get Picture from method call
+POST http://{{mybaseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/resources(d5fe020e-17ae-ec11-bb8a-000d3a299034)/Microsoft.NAV.pictureContent
+Authorization: Basic {{user}}
+
 ### Call method
 POST http://{{mybaseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/resources(d5fe020e-17ae-ec11-bb8a-000d3a299034)/Microsoft.NAV.post
 Authorization: Basic {{user}}
