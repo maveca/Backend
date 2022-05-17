@@ -48,13 +48,12 @@ page 59900 "Resource API"
                 {
                     Caption = 'Eye Color';
                 }
-                field(image; REc.Image)
+                field(image; PictureContent())
                 {
                     Caption = 'Image';
                 }
-                part(picture; "Picture Entity")
+                part(picture; "Resource Picture Entity")
                 {
-                    // https://www.eonesolutions.com/blog/tech-tuesday-business-central-item-image-web-service/
                     ApplicationArea = All;
                     Caption = 'picture';
                     EntityName = 'picture';
@@ -85,24 +84,11 @@ page 59900 "Resource API"
     [ServiceEnabled]
     procedure PictureContent(): Text
     var
-        //TenantMedia: Codeunit "Media Resources Mgt.";
         Base64Convert: Codeunit "Base64 Convert";
         TempBlob: Codeunit "Temp Blob";
-        InStream: InStream;
-        OutStream: OutStream;
     begin
-        Rec.Image.ExportStream(OutStream);
-        TempBlob.CreateInStream(InStream);
-        //TempBlob.CopyStream(OutStream, InStream);
-        exit(Base64Convert.ToBase64(InStream));
-
-        // if TenantMedia.Get(Rec.Image) then begin
-        //     TenantMedia.CalcFields(Content);
-        //     if TenantMedia.Content.HasValue() then begin
-        //         TenantMedia.Content.CreateInStream(InStream, TextEncoding::Windows);
-        //         exit(Base64Convert.ToBase64(InStream));
-        //     end;
-        // end;
+        Rec.Image.ExportStream(TempBlob.CreateOutStream());
+        exit(Base64Convert.ToBase64(TempBlob.CreateInStream()));
     end;
 
 }

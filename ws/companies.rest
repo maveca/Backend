@@ -9,6 +9,10 @@
 @password = Torek557!
 @user = {{username}}:{{password}}
 
-### List of services returned by bc service api
-GET http://{{baseurl}}
+### List of companies
+GET http://{{baseurl}}/companies
+Authorization: Basic {{user}}
+
+### Specific company
+GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)
 Authorization: Basic {{user}}

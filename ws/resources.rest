@@ -1,0 +1,40 @@
+@hostname = betsandbox.westeurope.cloudapp.azure.com
+@port = 7048
+@servicename = E1
+@api = api/v2.0
+@myapi = api/andjela/finance/v1.0
+@baseurl = {{hostname}}:{{port}}/{{servicename}}/{{api}}
+@mybaseurl = {{hostname}}:{{port}}/{{servicename}}/{{myapi}}
+@username = STUDENT
+@password = Torek557!
+@user = {{username}}:{{password}}
+@currCompany = companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)
+@currResouce = resources(d5fe020e-17ae-ec11-bb8a-000d3a299034)
+
+### Resources are not part of standard apis - that's why we are using custom api.
+### Note: we are using mybaseurl instead baseurl where we are addressing to api/andjela/finance/v1.0
+
+### My list of apis
+GET http://{{mybaseurl}}
+Authorization: Basic {{user}}
+
+### List of resources
+GET http://{{mybaseurl}}/{{currCompany}}/resources
+Authorization: Basic {{user}}
+
+### Specific resource
+GET http://{{mybaseurl}}/{{currCompany}}/{{currResouce}}
+Authorization: Basic {{user}}
+
+### Resource's picture
+GET http://{{mybaseurl}}/{{currCompany}}/{{currResouce}}/image
+Authorization: Basic {{user}}
+
+### How to call custom bound method (this example is bound to resource because it's an example of custom api and not because it makes sens posting on resource)
+POST http://{{mybaseurl}}/{{currCompany}}/{{currResouce}}/Microsoft.NAV.post
+Authorization: Basic {{user}}
+
+### Can we get picture through bound method?
+POST http://{{mybaseurl}}/{{currCompany}}/{{currResouce}}/Microsoft.NAV.pictureContent
+Authorization: Basic {{user}}
+

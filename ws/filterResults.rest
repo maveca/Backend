@@ -9,6 +9,10 @@
 @password = Torek557!
 @user = {{username}}:{{password}}
 
-### List of services returned by bc service api
-GET http://{{baseurl}}
+#### List of all Customers
+GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/customers
+Authorization: Basic {{user}}
+
+#### List my Ivana's Customers
+GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/customers?$filter=salespersonCode eq 'IVANA'
 Authorization: Basic {{user}}

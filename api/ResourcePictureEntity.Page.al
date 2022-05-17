@@ -1,5 +1,7 @@
+/// <summary>
+/// Page Resource Picture Entity (ID 59902).
+/// </summary>
 page 59902 "Resource Picture Entity"
-// page 5468 "Picture Entity"
 {
     Caption = 'Picture Entity';
     DelayedInsert = true;
@@ -19,65 +21,37 @@ page 59902 "Resource Picture Entity"
                     ApplicationArea = All;
                     Caption = 'id', Locked = true;
                     Editable = false;
+                    ToolTip = 'Specifies the value of the id field.';
                 }
                 field(width; Rec.Width)
                 {
                     ApplicationArea = All;
                     Caption = 'width', Locked = true;
                     Editable = false;
+                    ToolTip = 'Specifies the value of the width field.';
                 }
                 field(height; Rec.Height)
                 {
                     ApplicationArea = All;
                     Caption = 'height', Locked = true;
                     Editable = false;
+                    ToolTip = 'Specifies the value of the height field.';
                 }
                 field(contentType; Rec."Mime Type")
                 {
                     ApplicationArea = All;
                     Caption = 'contentType';
                     Editable = false;
+                    ToolTip = 'Specifies the value of the contentType field.';
                 }
                 field(content; Rec.Content)
                 {
                     ApplicationArea = All;
                     Caption = 'content';
+                    ToolTip = 'Specifies the value of the content field.';
                 }
             }
         }
     }
-
-    actions
-    {
-    }
-
-    // trigger OnDeleteRecord(): Boolean
-    // begin
-    //     DeletePicture;
-    // end;
-
-    // trigger OnFindRecord(Which: Text): Boolean
-    // begin
-    //     if not DataLoaded then begin
-    //         Rec.LoadData(GetFilter(Id));
-    //         Insert(true);
-    //     end;
-
-    //     DataLoaded := true;
-    //     exit(true);
-    // end;
-
-    // trigger OnInsertRecord(BelowxRec: Boolean): Boolean
-    // begin
-    //     SavePicture;
-    // end;
-
-    // trigger OnModifyRecord(): Boolean
-    // begin
-    //     SavePicture;
-    // end;
-
-    var
-        DataLoaded: Boolean;
 }
 

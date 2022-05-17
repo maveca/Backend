@@ -1,0 +1,49 @@
+@hostname = betsandbox.westeurope.cloudapp.azure.com
+@port = 7048
+@servicename = E1
+@api = api/v2.0
+@myapi = api/andjela/finance/v1.0
+@baseurl = {{hostname}}:{{port}}/{{servicename}}/{{api}}
+@mybaseurl = {{hostname}}:{{port}}/{{servicename}}/{{myapi}}
+@username = STUDENT
+@password = Torek557!
+@user = {{username}}:{{password}}
+
+### Get sales Order
+GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/salesOrders(ec59001a-17ae-ec11-bb8a-000d3a299034)
+Authorization: Basic {{user}}
+
+### Get sales Order Lines
+GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/salesOrders(ec59001a-17ae-ec11-bb8a-000d3a299034)/salesOrderLines
+Authorization: Basic {{user}}
+
+### How to sent order?
+POST http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/salesOrders
+Authorization: Basic {{user}}
+Content-Type: application/json
+{
+    "postingDate": "2022-05-12",
+    "customerNumber": "30000"
+}
+
+### How to sent order lines?
+POST http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/salesOrders(d229cac1-e7d1-ec11-9624-6045bd8fe131)/salesOrderLines
+Authorization: Basic {{user}}
+Content-Type: application/json
+{
+    "lineType": "Item",
+    "lineObjectNumber": "1953-W",
+    "quantity": 2
+}
+
+### How to post order?
+POST http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/salesOrders(d229cac1-e7d1-ec11-9624-6045bd8fe131)/Microsoft.NAV.post
+Authorization: Basic {{user}}
+
+###
+
+PATCH https://{businesscentralPrefix}/api/v2.0/companies({id})/salesOrders({id})
+Content-type: application/json
+{
+  "paymentTermsId": "3bb5b4b6-ea4c-43ca-ba1c-3b69e29a6668"
+}
