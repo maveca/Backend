@@ -26,15 +26,15 @@ Authorization: Basic {{user}}
 GET http://{{mybaseurl}}/{{currCompany}}/{{currResouce}}
 Authorization: Basic {{user}}
 
-### Resource's picture
-GET http://{{mybaseurl}}/{{currCompany}}/{{currResouce}}/image
+### Resource's image info
+GET http://{{mybaseurl}}/{{currCompany}}/images(56088d2f-770c-4b90-ad12-0033ea5a61ea)
+Authorization: Basic {{user}}
+
+### Resource's image content
+GET http://{{mybaseurl}}/{{currCompany}}/images(56088d2f-770c-4b90-ad12-0033ea5a61ea)/content
 Authorization: Basic {{user}}
 
 ### How to call custom bound method (this example is bound to resource because it's an example of custom api and not because it makes sens posting on resource)
+### Usually you would put post method on document like Sales Order.
 POST http://{{mybaseurl}}/{{currCompany}}/{{currResouce}}/Microsoft.NAV.post
 Authorization: Basic {{user}}
-
-### Can we get picture through bound method?
-POST http://{{mybaseurl}}/{{currCompany}}/{{currResouce}}/Microsoft.NAV.pictureContent
-Authorization: Basic {{user}}
-

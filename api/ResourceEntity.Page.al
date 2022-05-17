@@ -6,7 +6,7 @@ page 59900 "Resource Entity"
     APIGroup = 'finance';
     APIPublisher = 'andjela';
     APIVersion = 'v1.0';
-    Caption = 'resourceAPI';
+    Caption = 'Resource Entity';
     DelayedInsert = true;
     EntityName = 'resource';
     EntitySetName = 'resources';
@@ -48,17 +48,9 @@ page 59900 "Resource Entity"
                 {
                     Caption = 'Eye Color';
                 }
-                field(image; PictureContent())
+                field(image; Rec.Image.MediaId)
                 {
                     Caption = 'Image';
-                }
-                part(picture; "Resource Picture Entity")
-                {
-                    ApplicationArea = All;
-                    Caption = 'picture';
-                    EntityName = 'picture';
-                    EntitySetName = 'picture';
-                    SubPageLink = Id = FIELD(SystemId);
                 }
             }
         }

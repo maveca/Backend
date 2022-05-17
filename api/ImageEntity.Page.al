@@ -1,15 +1,19 @@
 /// <summary>
 /// Page Resource Picture Entity (ID 59902).
 /// </summary>
-page 59902 "Resource Picture Entity"
+page 59902 "Image Entity"
 {
-    Caption = 'Resource Picture Entity';
-    DelayedInsert = true;
-    InsertAllowed = false;
-    ModifyAllowed = false;
-    DeleteAllowed = false;
-    PageType = ListPart;
+    APIGroup = 'finance';
+    APIPublisher = 'andjela';
+    APIVersion = 'v1.0';
+    Caption = 'Image Entity';
+    Editable = false;
+    PageType = API;
     SourceTable = "Tenant Media";
+    DelayedInsert = true;
+    EntityName = 'image';
+    EntitySetName = 'images';
+    ODataKeyFields = Id;
     layout
     {
         area(content)
@@ -46,12 +50,12 @@ page 59902 "Resource Picture Entity"
                 }
 #pragma warning disable AL0273, AW0009                
                 field(content; Rec.Content)
-#pragma warning restore AL0273, AW0009
                 {
                     ApplicationArea = All;
                     Caption = 'content';
                     ToolTip = 'Specifies the value of the content field.';
                 }
+#pragma warning restore AL0273, AW0009
             }
         }
     }

@@ -1,3 +1,6 @@
+/// <summary>
+/// Codeunit Demo Post (ID 59900).
+/// </summary>
 codeunit 59900 "Demo Post"
 {
     TableNo = Resource;
