@@ -2,7 +2,7 @@
 @port = 7048
 @servicename = E1
 @api = api/v2.0
-@myapi = api/andjela/finance/v1.0
+@myapi = api/kristina/fm/v1.0
 @baseurl = {{hostname}}:{{port}}/{{servicename}}/{{api}}
 @mybaseurl = {{hostname}}:{{port}}/{{servicename}}/{{myapi}}
 @username = STUDENT
@@ -14,7 +14,7 @@ GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/items
 Authorization: Basic {{user}}
 
 ### List of items with filter
-GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/items?$filter=itemCategoryCode eq 'CHAIR' and inventory ge 0
+GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/items?$filter=(itemCategoryCode eq 'DRESS') and (inventory gt 0)
 Authorization: Basic {{user}}
 
 ### One Item
@@ -28,3 +28,8 @@ Authorization: Basic {{user}}
 ### Item Picture Content
 GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/items(1ffd020e-17ae-ec11-bb8a-000d3a299034)/picture/pictureContent
 Authorization: Basic {{user}}
+
+### Item Attributes
+GET http://{{mybaseurl}}/companies(27a4a34e-b3d5-ec11-9624-6045bd8fe131)/itemAttributes
+Authorization: Basic {{user}}
+
