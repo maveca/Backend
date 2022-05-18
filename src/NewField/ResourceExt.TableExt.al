@@ -10,5 +10,10 @@ tableextension 59900 ResourceExt extends Resource
             Caption = 'Eye Color';
             DataClassification = ToBeClassified;
         }
+        field(59901; "Long Description"; Blob)
+        {
+            Caption = 'Long Description';
+            DataClassification = AccountData;
+        }
     }
 }

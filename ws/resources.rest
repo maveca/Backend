@@ -31,7 +31,7 @@ GET http://{{mybaseurl}}/{{currCompany}}/images(56088d2f-770c-4b90-ad12-0033ea5a
 Authorization: Basic {{user}}
 
 ### Resource's image content
-GET http://{{mybaseurl}}/{{currCompany}}/images(56088d2f-770c-4b90-ad12-0033ea5a61ea)/content
+GET http://{{mybaseurl}}/{{currCompany}}/images(8004d519-4838-45ff-b8b3-25a4fdd0122a)/content
 Authorization: Basic {{user}}
 
 ### How to call custom bound method (this example is bound to resource because it's an example of custom api and not because it makes sens posting on resource)
