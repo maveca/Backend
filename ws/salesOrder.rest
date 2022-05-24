@@ -36,6 +36,17 @@ Content-Type: application/json
     "quantity": 2
 }
 
+POST http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/salesOrderLines
+Authorization: Basic {{user}}
+Content-Type: application/json
+{
+    "documentNo": '1001',
+    "lineType": "Item",
+    "lineObjectNumber": "1953-W",
+    "quantity": 2
+}
+
+
 ### How to post order?
 POST http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/salesOrders(d229cac1-e7d1-ec11-9624-6045bd8fe131)/Microsoft.NAV.post
 Authorization: Basic {{user}}
