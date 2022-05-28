@@ -1,0 +1,29 @@
+@hostname = betsandbox.westeurope.cloudapp.azure.com
+@port = 7048
+@servicename = E1
+@api = api/v2.0
+@myapi = api/kristina/fm/v1.0
+@baseurl = {{hostname}}:{{port}}/{{servicename}}/{{api}}
+@mybaseurl = {{hostname}}:{{port}}/{{servicename}}/{{myapi}}
+@username = STUDENT
+@password = Torek557!
+@user = {{username}}:{{password}}
+
+### List of customers
+GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/customers
+Authorization: Basic {{user}}
+
+### Get specific customer
+GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/customers(d9450e02-17ae-ec11-bb8a-000d3a299034)
+Authorization: Basic {{user}}
+
+### Update customer
+PUT http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/customers(d9450e02-17ae-ec11-bb8a-000d3a299034)
+Authorization: Basic {{user}}
+Content-Type: application/json
+If-Match: W/"JzIwOzExOTUwNjM4ODAwNDI5NzA5NTk2MTswMDsn"
+
+{
+    "addressLine2": "123"
+}
+

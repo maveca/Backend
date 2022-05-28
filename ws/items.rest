@@ -22,7 +22,7 @@ GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/items(1ff
 Authorization: Basic {{user}}
 
 ### Item Picture Info
-GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/items(1ffd020e-17ae-ec11-bb8a-000d3a299034)/picture
+GET http://{{baseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/items(e4fc020e-17ae-ec11-bb8a-000d3a299034)/picture
 Authorization: Basic {{user}}
 
 ### Item Picture Content

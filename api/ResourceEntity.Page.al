@@ -83,4 +83,10 @@ page 59900 "Resource Entity"
         exit(Base64Convert.ToBase64(TempBlob.CreateInStream()));
     end;
 
+    [ServiceEnabled]
+    procedure Ping(): Text
+    begin
+        exit('pong');
+    end;
+
 }

@@ -1,0 +1,16 @@
+
+@username = LINBRUN
+@password = Informacionisistemi1.
+@user = {{username}}:{{password}}
+
+### Get Items
+GET http://betsandbox.westeurope.cloudapp.azure.com:7048/E2/api/analinbrun/gym/v1.0/companies(c9163d53-69d0-ec11-9622-6045bd8fe131)/gyms
+Authorization: Basic {{user}}
+
+
+### Send Item
+POST http://betsandbox.westeurope.cloudapp.azure.com:7048/E2/api/analinbrun/gym/v1.0/companies(c9163d53-69d0-ec11-9622-6045bd8fe131)/gyms
+Authorization: Basic {{user}}
+Content-Type: application/json
+
+{"name":"Lina Nikolić","baseUnitOfMeasure":"DAY"}

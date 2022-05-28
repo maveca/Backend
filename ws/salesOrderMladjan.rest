@@ -1,0 +1,35 @@
+@hostname = betsandbox.westeurope.cloudapp.azure.com
+@port = 7048
+@servicename = E1
+@api = api/v2.0
+@myapi = api/mladjan/finance/v1.0
+@baseurl = {{hostname}}:{{port}}/{{servicename}}/{{api}}
+@mybaseurl = {{hostname}}:{{port}}/{{servicename}}/{{myapi}}
+@username = STUDENT
+@password = Torek557!
+@user = {{username}}:{{password}}
+
+### Get sales Order
+GET http://{{mybaseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/mySalesOrders
+Authorization: Basic {{user}}
+
+
+### How to sent order?
+POST http://{{mybaseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/mySalesOrders
+Authorization: Basic {{user}}
+Content-Type: application/json
+
+{
+    "documentType": "Order",
+    "no": "",
+    "sellToCustomerNo": "49633663",
+    "billToCustomerNo": "49633663",
+    "postingDate": "2024-12-01"
+}
+
+### How to post order?
+POST http://{{mybaseurl}}/companies(4e7779f8-16ae-ec11-bb8a-000d3a299034)/mySalesOrders(f61e6829-a9dd-ec11-9624-6045bd8fe131)/Microsoft.NAV.post
+Authorization: Basic {{user}}
+Content-Type: application/json
+
+{}

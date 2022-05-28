@@ -36,5 +36,13 @@ Authorization: Basic {{user}}
 
 ### How to call custom bound method (this example is bound to resource because it's an example of custom api and not because it makes sens posting on resource)
 ### Usually you would put post method on document like Sales Order.
-POST http://{{mybaseurl}}/{{currCompany}}/{{currResouce}}/Microsoft.NAV.post
+POST http://{{mybaseurl}}/{{currCompany}}/{{currResouce}}/Microsoft.NAV.pictureContent
+Authorization: Basic {{user}}
+
+### Usually you would put post method on document like Sales Order.
+POST http://{{mybaseurl}}/{{currCompany}}/{{currResouce}}/Microsoft.NAV.ping
+Authorization: Basic {{user}}
+
+### unbound action
+POST http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/ODataV4/Ping_Ping?company='Mina%27%27s%20web%20shop'
 Authorization: Basic {{user}}
